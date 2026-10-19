@@ -23,7 +23,7 @@ class CalcCosmology:
     def get_cosmology(self):
 
         zdrag = 1060
-        zcamb = np.logspace(-5,np.log10(max(self.zcalc)),250)
+        zcamb = np.array([0]+[z for z in np.logspace(-5,np.log10(max(self.zcalc)),249)])
         if min(self.zcalc)<min(zcamb):
             sys.exit('Requested redshift lower than calculation limit: {:.2f} < {:.2f}'.format(min(self.zcalc),min(zcamb)))
 
